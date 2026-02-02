@@ -15,7 +15,7 @@ class Server {
             const pathname = parsedUrl.pathname;
 
             // Part B
-            if (pathname === "/COMP4537/labs/3/getDate") {
+            if (pathname.startsWith("/COMP4537/labs/3/getDate")) {
                 const name = parsedUrl.query.name;
 
                 if (!name) {
@@ -33,7 +33,7 @@ class Server {
             }
 
             // Part C.1
-            if (pathname === "/COMP4537/labs/3/writeFile") {
+            if (pathname.startsWith("/COMP4537/labs/3/writeFile")) {
                 const text = parsedUrl.query.text;
 
                 if (!text) {
