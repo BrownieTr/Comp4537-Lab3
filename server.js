@@ -80,4 +80,4 @@ class Server {
     }
 }
 
-new Server(3000).start();
+new Server(process.env.PORT || 3000).start();
