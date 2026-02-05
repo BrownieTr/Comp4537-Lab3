@@ -56,8 +56,9 @@ class Server {
             }
 
             // Part C.2
-            if (pathname === "/COMP4537/labs/3/readFile/file.txt") {
-                const file = new FileManager("file.txt");
+            if (pathname.startsWith("/COMP4537/labs/3/readFile/")) {
+                const filename = pathname.replace("/COMP4537/labs/3/readFile/", "");
+                const file = new FileManager(filename);
 
                 try {
                     const content = await file.read();
@@ -65,7 +66,7 @@ class Server {
                     res.end(content);
                 } catch (err) {
                     res.writeHead(404, { "Content-Type": "text/html" });
-                    res.end(`<p style="color:red">404: file.txt not found</p>`);
+                    res.end(`<p style="color:red">404: ${filename} not found</p>`);
                 }
                 return;
             }
