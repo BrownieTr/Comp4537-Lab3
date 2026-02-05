@@ -34,7 +34,7 @@ class Server {
 
             // Part C.1
             if (pathname.startsWith("/COMP4537/labs/3/writeFile")) {
-                const text = parsedUrl.query.text;
+                const text = decodeURIComponent(parsedUrl.query.text);
 
                 if (!text) {
                     res.writeHead(400, { "Content-Type": "text/html" });
